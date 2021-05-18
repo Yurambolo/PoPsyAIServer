@@ -7,7 +7,7 @@ from apis.AI.Recomedation import  Rcomendaror
 from apis.AI.TextAI import TextAI
 import numpy as np
 
-recomendator = Rcomendaror()
+recomendator = Rcomendaror(1, 0.5)
 textAI = TextAI()
 
 @csrf_exempt
