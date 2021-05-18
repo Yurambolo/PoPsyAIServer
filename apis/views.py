@@ -4,9 +4,16 @@ import jsonpickle
 import json
 from django.views.decorators.csrf import csrf_exempt
 from apis.AI.Recomedation import  Rcomendaror
+from apis.AI.TextAI import TextAI
 import numpy as np
 
 recomendator = Rcomendaror()
+textAI = TextAI()
+
+@csrf_exempt
+def extractEnotion(request):
+    Text = jsonpickle.decode(request.POST.get("Text"))
+    return JsonResponse(jsonpickle.encode(textAI.predictEmotion(Text),unpicklable=True),safe = False)
 
 @csrf_exempt
 def NearestUserEmotion(request):

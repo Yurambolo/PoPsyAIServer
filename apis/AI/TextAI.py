@@ -148,5 +148,4 @@ class TextAI:
 
     def predictEmotion(self, text):
         value = self.text_preprosses(text);
-        emotions = ['sadness', 'happiness', 'worry', 'love', 'hate']
-        return emotions[self.model.predict(value)[0]]
+        return list(self.model.predict_proba(value))
